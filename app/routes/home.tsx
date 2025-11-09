@@ -112,12 +112,6 @@ export default function Home() {
                 <div className="text-sm">Repositories</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">
-                  {githubStats?.followers || "..."}
-                </div>
-                <div className="text-sm">Followers</div>
-              </div>
-              <div className="text-center">
                 <div className="text-3xl font-bold text-white">3+</div>
                 <div className="text-sm">Years Exp</div>
               </div>
