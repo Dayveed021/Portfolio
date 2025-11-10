@@ -104,19 +104,6 @@ export default function Home() {
                 Contact Me
               </a>
             </div>
-
-            <div className="flex justify-center gap-6 text-slate-400">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">
-                  {githubStats?.public_repos || "..."}
-                </div>
-                <div className="text-sm">Repositories</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">3+</div>
-                <div className="text-sm">Years Exp</div>
-              </div>
-            </div>
           </div>
 
           <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce">
