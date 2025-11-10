@@ -13,6 +13,7 @@ import AnimatedBackground from "~/components/AnimatedBackground";
 import Footer from "~/components/Footer";
 import GitHubAnalytics from "~/components/GithubAnalytics";
 import Navbar from "~/components/Navbar";
+import { technicalSkills } from "~/data/about";
 import { experience } from "~/data/experience";
 import { projects } from "~/data/projects";
 import { skills } from "~/data/skills";
@@ -130,86 +131,123 @@ export default function Home() {
           <div className="scroll-animate opacity-0">
             <h2 className="text-4xl font-bold mb-12 text-center">
               About{" "}
-              <span className="bg-linear-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
                 Me
               </span>
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                  I'm a creative and detail-oriented Frontend Developer based in
-                  Dallas, TX, with expertise in modern frameworks like React,
-                  Angular, and Next.js. I specialize in translating design
-                  visions into pixel-perfect, accessible web experiences.
-                </p>
-                <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                  With a strong foundation in both development and design tools
-                  like Figma and Adobe Creative Suite, I bridge the gap between
-                  aesthetics and functionality, ensuring every project is both
-                  beautiful and performant.
-                </p>
-
-                <div className="flex flex-wrap gap-3 mb-6">
-                  {[
-                    "React",
-                    "TypeScript",
-                    "Next.js",
-                    "Tailwind",
-                    "AWS",
-                    "Figma",
-                  ].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 bg-slate-800 rounded-full text-sm hover:bg-linear-to-r hover:from-purple-600 hover:to-pink-600 transition-all cursor-default"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+            {/* Bio and Quick Tech Tags */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                    I'm a creative and detail-oriented Frontend Developer based in
+                    Dallas, TX, with expertise in modern frameworks like React,
+                    Angular, and Next.js. I specialize in translating design
+                    visions into pixel-perfect, accessible web experiences.
+                  </p>
+                  <p className="text-lg text-slate-300 leading-relaxed">
+                    With a strong foundation in both development and design tools
+                    like Figma and Adobe Creative Suite, I bridge the gap between
+                    aesthetics and functionality, ensuring every project is both
+                    beautiful and performant.
+                  </p>
                 </div>
 
-                <div className="flex gap-4">
-                  <Award className="text-purple-400" size={24} />
-                  <div>
-                    <h3 className="font-semibold mb-2">Certifications</h3>
-                    <ul className="text-slate-400 space-y-1">
-                      <li>• AWS Certified Solutions Architect</li>
-                      <li>• Frontend Development Track (OctaFx)</li>
-                    </ul>
+                <div>
+                  <div className="flex flex-wrap gap-3 mb-6">
+                    {[
+                      "React",
+                      "TypeScript",
+                      "Next.js",
+                      "Tailwind",
+                      "AWS",
+                      "Figma",
+                    ].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 bg-slate-800 rounded-full text-sm hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 transition-all cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-4 bg-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-slate-800">
+                    <Award className="text-purple-400 flex-shrink-0" size={24} />
+                    <div>
+                      <h3 className="font-semibold mb-2">Certifications</h3>
+                      <ul className="text-slate-400 space-y-1">
+                        <li>• AWS Certified Solutions Architect</li>
+                        <li>• Frontend Development Track (OctaFx)</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <div
-                    key={skill.name}
-                    className="scroll-animate opacity-0"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="flex justify-between mb-2">
-                      <span className="flex items-center gap-2">
-                        <span>{skill.icon}</span>
-                        {skill.name}
-                      </span>
-                      <span className="text-purple-400">{skill.level}%</span>
+            {/* Technical Skills Section */}
+            <div className="mb-8">
+              <h3 className="text-3xl font-bold mb-8 text-center flex items-center justify-center gap-2">
+                <span className="text-3xl">🛠️</span>
+                Technical Skills
+              </h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {technicalSkills.map((category, index) => (
+                <div
+                  key={category.category}
+                  className="scroll-animate opacity-0 bg-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-slate-800 hover:border-purple-500/50 transition-all"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`p-2 rounded-lg bg-gradient-to-br ${category.color} bg-opacity-20`}>
+                      {category.icon}
                     </div>
-                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-linear-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-1000"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
+                    <h4 className="text-lg font-bold">{category.category}</h4>
                   </div>
-                ))}
+
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="px-3 py-1.5 bg-slate-800 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 rounded-full text-sm transition-all cursor-default hover:scale-105 border border-slate-700 hover:border-transparent"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-xl p-6 border border-purple-500/30 text-center hover:scale-105 transition-transform">
+                <div className="text-3xl font-bold text-white mb-2">12+</div>
+                <div className="text-sm text-slate-400">Frontend Technologies</div>
+              </div>
+              <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 border border-blue-500/30 text-center hover:scale-105 transition-transform">
+                <div className="text-3xl font-bold text-white mb-2">6+</div>
+                <div className="text-sm text-slate-400">Backend Tools</div>
+              </div>
+              <div className="bg-gradient-to-br from-green-500/10 to-teal-500/10 backdrop-blur-sm rounded-xl p-6 border border-green-500/30 text-center hover:scale-105 transition-transform">
+                <div className="text-3xl font-bold text-white mb-2">6+</div>
+                <div className="text-sm text-slate-400">Cloud & Database</div>
+              </div>
+              <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 backdrop-blur-sm rounded-xl p-6 border border-orange-500/30 text-center hover:scale-105 transition-transform">
+                <div className="text-3xl font-bold text-white mb-2">10+</div>
+                <div className="text-sm text-slate-400">Dev Tools</div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* GitHub Analytics Section */}
-      <section id="github" className="py-20 bg-slate-900/50">
+      <section id="github" className="py-20 bg-slate-900/50" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="scroll-animate opacity-0">
             <h2 className="text-4xl font-bold mb-4 text-center">
@@ -228,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-slate-900/50">
+      <section id="projects" className="py-20 bg-slate-900/50" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="scroll-animate opacity-0">
             <h2 className="text-4xl font-bold mb-12 text-center">
@@ -291,10 +329,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Experience Section */}
-      <section id="experience" className="py-20">
+      <section id="experience" className="py-20" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="scroll-animate opacity-0">
             <h2 className="text-4xl font-bold mb-12 text-center">
@@ -354,10 +392,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-900/50">
+      <section id="contact" className="py-20 bg-slate-900/50" >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="scroll-animate opacity-0">
             <h2 className="text-4xl font-bold mb-4 text-center">
@@ -408,77 +446,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
-              {/* <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    required
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <textarea
-                    placeholder="Your Message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={formStatus === "sending"}
-                  className="w-full px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg flex items-center justify-center gap-2 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {formStatus === "sending" ? (
-                    "Sending..."
-                  ) : formStatus === "success" ? (
-                    "✓ Message Sent!"
-                  ) : (
-                    <>
-                      <Send size={20} />
-                      Send Message
-                    </>
-                  )}
-                </button>
-
-                {formStatus === "success" && (
-                  <p className="text-green-400 text-center text-sm">
-                    Thanks for reaching out! I'll get back to you soon.
-                  </p>
-                )}
-              </form> */}
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Footer */}
-      <Footer />
+      < Footer />
 
       <style>{`
         @keyframes fade-in {
@@ -508,6 +482,6 @@ export default function Home() {
           }
         }
       `}</style>
-    </div>
+    </div >
   );
 }
