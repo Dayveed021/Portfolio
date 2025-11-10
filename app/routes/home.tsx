@@ -77,7 +77,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl sm:text-2xl text-slate-300 mb-4">
-              Frontend Developer | UX Enthusiast | Creative Problem Solver
+              Software Engineer | UX Enthusiast | Creative Problem Solver
             </p>
 
             <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-8">
@@ -128,7 +128,7 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                    I'm a creative and detail-oriented Frontend Developer based in
+                    I'm a creative and detail-oriented Software Engineer based in
                     Dallas, TX, with expertise in modern frameworks like React,
                     Angular, and Next.js. I specialize in translating design
                     visions into pixel-perfect, accessible web experiences.
